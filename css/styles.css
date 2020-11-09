@@ -705,6 +705,7 @@ ul {
 
 .portfolio-link {
   display: block;
+  text-decoration: none;
 }
 
 .portfolio-link:hover,
