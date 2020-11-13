@@ -24,6 +24,8 @@
   --icon-fill: #afb1b8;
   --footer-text-link: rgba(255, 255, 255, 0.6);
   --bgc-footer-icon: rgba(255, 255, 255, 0.1);
+  --animation-duration: 250ms;
+  --animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -39,15 +41,15 @@ body {
   padding-left: 15px;
 }
 
-ul,
-h2,
-h3,
-p {
+.list,
+.second-tittle,
+.third-tittle,
+.txt {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-h2 {
+.second-tittle {
   margin-bottom: 50px;
 
   color: var(--text-nav-tittle);
@@ -58,7 +60,7 @@ h2 {
   letter-spacing: 0.03em;
 }
 
-ul {
+.list {
   list-style-type: none;
   padding-left: 0;
 }
@@ -77,13 +79,13 @@ ul {
 }
 
 .visually-hidden {
-  position: absolute !important;
+  position: absolute;
   clip: rect(1px 1px 1px 1px);
   clip: rect(1px, 1px, 1px, 1px);
-  padding: 0 !important;
-  border: 0 !important;
-  height: 1px !important;
-  width: 1px !important;
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
   overflow: hidden;
 }
 
@@ -115,7 +117,7 @@ ul {
 .studio-header {
   color: var(--text-nav-tittle);
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--animation-duration) var(--animation-timing-function);
 }
 
 .logo:hover .studio-header,
@@ -149,7 +151,7 @@ ul {
   line-height: 1.14;
   letter-spacing: 0.02em;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--animation-duration) var(--animation-timing-function);
 }
 
 .header-nav .link:hover,
@@ -160,7 +162,7 @@ ul {
 .header-nav .link.current {
   color: var(--accent);
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--animation-duration) var(--animation-timing-function);
 }
 
 .header-nav .link.current:hover,
@@ -183,7 +185,7 @@ ul {
   border-radius: 2px;
   opacity: 1;
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--animation-duration) var(--animation-timing-function);
 }
 
 .link.current:hover::after,
@@ -202,7 +204,7 @@ ul {
   border-radius: 2px;
   opacity: 0;
 
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--animation-duration) var(--animation-timing-function);
 }
 
 .header-nav .link:hover::after,
@@ -235,7 +237,7 @@ ul {
   letter-spacing: 0.02em;
   text-decoration: none;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--animation-duration) var(--animation-timing-function);
 }
 
 .header-adress .link:hover,
@@ -312,75 +314,13 @@ ul {
   text-decoration: none;
   cursor: pointer;
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--animation-duration) var(--animation-timing-function);
 }
 
 .hero-button:hover,
 .hero-button:focus {
   background-color: var(--second-background-color);
   color: var(--text-nav-tittle);
-}
-
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
-  z-index: 2;
-  opacity: 1;
-
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.backdrop.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
-}
-
-.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1);
-
-  min-width: 528px;
-  min-height: 581px;
-  background-color: #fff;
-  display: flex;
-  justify-content: flex-end;
-
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%) scale(1.1);
-}
-
-.close-button {
-  display: inline-flex;
-  padding: 0;
-  margin: 0;
-  width: 30px;
-  height: 30px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 50%;
-  background-color: transparent;
-  justify-content: center;
-  align-items: center;
-  margin-top: 8px;
-  margin-right: 8px;
-  cursor: pointer;
-
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.close-button:hover,
-.close-button:focus {
-  background-color: var(--accent);
 }
 
 /*Features*/
@@ -524,9 +464,7 @@ ul {
   fill: var(--icon-fill);
   border-radius: 50%;
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border-radius 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--animation-duration) var(--animation-timing-function);
 }
 
 .social-list > .item:not(:last-child) {
@@ -560,8 +498,7 @@ ul {
   justify-content: center;
   fill: var(--icon-fill);
 
-  transition: border-radius 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--animation-duration) var(--animation-timing-function);
 }
 
 .clients-list .link:hover,
@@ -598,7 +535,7 @@ ul {
 .studio-footer {
   color: var(--main-background-color);
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--animation-duration) var(--animation-timing-function);
 }
 
 .logo:hover .studio-footer,
@@ -637,7 +574,7 @@ ul {
   line-height: 1.71;
   letter-spacing: 0.03em;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--animation-duration) var(--animation-timing-function);
 }
 
 .footer-adress .link:hover,
@@ -702,8 +639,7 @@ ul {
 
   cursor: pointer;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--animation-duration) var(--animation-timing-function);
 }
 
 .portfolio-button .link:hover,
@@ -768,7 +704,7 @@ ul {
   text-decoration: none;
   box-shadow: none;
 
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--animation-duration) var(--animation-timing-function);
 }
 
 .portfolio-link:hover,
@@ -792,8 +728,7 @@ ul {
   background-color: rgba(33, 150, 243, 0.9);
   transform: translateY(100%);
 
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: var(--animation-duration) var(--animation-timing-function);
 }
 
 .portfolio-link:hover .overlay,
@@ -811,4 +746,68 @@ ul {
   letter-spacing: 0.03em;
 
   color: var(--main-background-color);
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  opacity: 1;
+
+  transition: var(--animation-duration) var(--animation-timing-function);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+
+  min-width: 528px;
+  min-height: 581px;
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-end;
+
+  transition: var(--animation-duration) var(--animation-timing-function);
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.close-button {
+  display: inline-flex;
+  padding: 0;
+  margin: 0;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  background-color: transparent;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
+  margin-right: 8px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 1);
+
+  transition: var(--animation-duration) var(--animation-timing-function);
+}
+
+.close-button:hover {
+  color: var(--accent);
+}
+.close-icon {
+  fill: currentColor;
 }
